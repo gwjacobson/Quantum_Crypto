@@ -21,6 +21,8 @@ for e in range(2, phi):
 	if gcd(phi, e) == 1:
 		break
 
+print('e: '+str(e))
+
 #this is the private key
 for d in range(2,1000):
 	if (d*e) % phi == 1:
