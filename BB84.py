@@ -1,6 +1,9 @@
 from qiskit import QuantumRegister, ClassicalRegister, QuantumCircuit
 from numpy import pi
 
+#code pulled from circuit I built
+#on IBM Quantum Experience
+
 qreg_q = QuantumRegister(7, 'q')
 creg_c = ClassicalRegister(7, 'c')
 circuit = QuantumCircuit(qreg_q, creg_c)
