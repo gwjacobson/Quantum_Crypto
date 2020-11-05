@@ -21,6 +21,10 @@ for qubit in range(8): #apply basis on each qubit
     else: #computational basis on 0 bit
         continue
 
+#for qubit in range(8): #separate alice and bob basis
+    #qc.barrier(qubit)
+
+
 a_prime = [] #initial Bobs bit string
 for i in range(8):
     curr_bit = random.choice(bits)
@@ -28,3 +32,10 @@ for i in range(8):
 
 print("Bob's String: "+str(a_prime))
 
+for qubit in range(8): #apply basis on each qubit for bob
+    if a_prime[qubit] == 0: #diagonal basis on 0 bit
+        qc.h(qubit)
+    else: #computational basis on 1 bit
+        continue
+
+print(qc)
