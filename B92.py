@@ -50,7 +50,7 @@ ket = job.result().get_memory()
 
 print(qc)
 
-print(ket) #our measurement results
+print('Measurement Results: '+str(ket)) #our measurement results
 ket1 = ket[0] #get the string of bit measurements
 m = list(map(lambda i:i, ket1)) #split the string of measurements
 m_bits = list(map(int, m)) #turn each bit into an int
@@ -65,3 +65,4 @@ for b in range(len(m_bits)):
         continue
 
 print('Quantum Key: '+str(key))
+
