@@ -36,7 +36,7 @@ for i in range(20):
 print("Bob's String: "+str(a_prime))
 
 for qubit in range(20): #apply basis on each qubit for bob
-    if a_prime[qubit] == 0: #diagonal basis on 0 bit
+    if a_prime[qubit] == 1: #diagonal basis on 0 bit
         qc.h(qubit)
     else: #computational basis on 1 bit
         continue
