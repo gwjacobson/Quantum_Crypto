@@ -10,7 +10,7 @@ sim = Aer.get_backend('qasm_simulator') #local backend to run simulation
 bits = [0,1] #classical bits alice can choose
 
 a = [] #initialize alices bit string
-for i in range(0,20): #choose random bit string
+for i in range(20): #choose random bit string
     curr_bit = random.choice(bits)
     a.append(curr_bit)
 
@@ -19,7 +19,7 @@ print("Alice's String: "+str(a))
 qr = QuantumRegister(20)
 cr = ClassicalRegister(20)
 qc = QuantumCircuit(qr, cr)#create 8 quibit circuit for 8 bits
-for qubit in range(8): #apply basis on each qubit
+for qubit in range(20): #apply basis on each qubit
     if a[qubit] == 1: #diagonal basis on 1 bit
         qc.h(qubit)
     else: #computational basis on 0 bit
