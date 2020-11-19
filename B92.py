@@ -66,3 +66,49 @@ for b in range(len(m_bits)):
 
 print('Quantum Key: '+str(key))
 
+while True: 
+    message = input("Message to encrypt: ") #message to encrypt
+    if len(message) > len(key): #check that message is shorter than key
+        print('try a shorter message!')
+    else:
+        break
+
+
+alice_int = [ord(mess)-96 for mess in message] #int form of message
+
+encryption = [] # our encrypted message
+for i in range(len(alice_int)):
+    let = alice_int[i]+key[i] #add key int to message int
+    encryption.append(let)
+
+enc_mess = [] #letter version of encryption
+for i in range(len(encryption)):
+    mul = 1
+    n = encryption[i]
+    if n >= 26:
+        n = n-26
+        mul = 2
+    enc_mess.append(chr(n+96)*mul)
+
+enc_mess1 = ''.join(enc_mess)
+print('Your encrypted message is: '+str(enc_mess1))
+
+bob_int = [ord(i) - 96 for i in enc_mess1]
+
+bob_mess = []
+for i in range(len(bob_int)):
+    let = bob_int[i]-key[i]
+    bob_mess.append(let)
+
+
+decrypt = []
+for i in range(len(bob_mess)):
+    mul = 1
+    n = bob_mess[i]
+    if n >= 26:
+        n = n-26
+        mul = 2
+    decrypt.append(chr(n+96)*mul)
+
+de_mess = ''.join(decrypt)
+print('Your decrypted message is: '+str(de_mess))
