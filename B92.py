@@ -85,30 +85,24 @@ enc_mess = [] #letter version of encryption
 for i in range(len(encryption)):
     mul = 1
     n = encryption[i]
-    if n >= 26:
-        n = n-26
-        mul = 2
     enc_mess.append(chr(n+96)*mul)
 
-enc_mess1 = ''.join(enc_mess)
+enc_mess1 = ''.join(enc_mess) #create encyrpted string
 print('Your encrypted message is: '+str(enc_mess1))
 
-bob_int = [ord(i) - 96 for i in enc_mess1]
+bob_int = [ord(i) - 96 for i in enc_mess1] #convert encryption to numbers
 
 bob_mess = []
-for i in range(len(bob_int)):
+for i in range(len(bob_int)): #subtract the key from encryption
     let = bob_int[i]-key[i]
     bob_mess.append(let)
 
 
 decrypt = []
-for i in range(len(bob_mess)):
+for i in range(len(bob_mess)): #convert decrpted numbers to letters
     mul = 1
     n = bob_mess[i]
-    if n >= 26:
-        n = n-26
-        mul = 2
     decrypt.append(chr(n+96)*mul)
 
-de_mess = ''.join(decrypt)
+de_mess = ''.join(decrypt) #decrypted srting
 print('Your decrypted message is: '+str(de_mess))
